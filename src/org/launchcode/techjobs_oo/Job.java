@@ -13,11 +13,12 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    public Job(int id) {
-        this.id = id;
+    public Job() {
+        this.id = nextId;
+        nextId++;
     }
 
-    public Job(int id, String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this.id = id;
         this.name = name;
         this.employer = employer;
@@ -25,6 +26,10 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+//
+//    public Job() {
+//
+//    }
 
     public String getName() {
         return name;
