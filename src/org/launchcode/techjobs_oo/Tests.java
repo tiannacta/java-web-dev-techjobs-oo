@@ -12,7 +12,7 @@ public class Tests {
         Job test_job2 = new Job();
         assertEquals(test_job.getId(), test_job2.getId());
     }
-
+    @Test
     public void testJobConstructorSetsAllFields() {
         Job test_job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals(test_job3.getName(), "Product Tester");
@@ -23,6 +23,7 @@ public class Tests {
         assertEquals(test_job3 instanceof Job, true);
         assertTrue(test_job3 instanceof Job);
     }
+    @Test
 
     public void testJobsForEquality() {
         Job test_job4 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
@@ -30,5 +31,12 @@ public class Tests {
         Job test_job5 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         assertEquals(test_job4.equals(test_job5), false);
+    }
+    @Test
+    public void testBlankLineWithToStringMethod(){
+        Job test_job6 = new Job();
+        Job test_job7 = new Job();
+        assertEquals(test_job6.toString().startsWith("\n"), true);
+        assertEquals(test_job7.toString().endsWith("\n"), true);
     }
 }
